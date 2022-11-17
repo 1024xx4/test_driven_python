@@ -41,3 +41,12 @@ Test を駆動するときの初期状態。Action を実行するために Data
 ### 3. Then / Assert
 
 結果、または最終状態の期待値。Test の最後に、Action の結果が期待どおりの振る舞いになったことを確認する。
+
+---
+
+## Test の OPP(Object Oriented Programing)の考察
+
+- 基本的には、Test をまとめて実行しやすくする目的のみで利用する。
+- Test Class の階層を利用して Helper-method を継承することなど可能だが極力避ける。
+  ※ Test-class の継承を使って何か凝ったことをしようとすると、混乱の原因になる。
+
