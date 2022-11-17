@@ -50,3 +50,17 @@ Test を駆動するときの初期状態。Action を実行するために Data
 - Test Class の階層を利用して Helper-method を継承することなど可能だが極力避ける。
   ※ Test-class の継承を使って何か凝ったことをしようとすると、混乱の原因になる。
 
+---
+
+## Test の一部を実行する方法
+
+| 実行する部分               | 構文                                                     |
+|----------------------|--------------------------------------------------------|
+| Test-method を１つだけ    | `pytest <pass> test_module.py::TestClass::test_method` |
+| Class内のすべての Test     | `pytest <pass> test_module.py::TestClass`              |
+| Test関数を１つだけ          | `pytest <pass> test_module.py::test_function`          |
+| Module内のすべての Test    | `pytest <pass>`                                        |
+| Directory内のすべての Test | `pytest -, <pattern>`                                  |
+
+-k flag を and, not, or の３つの Keyword と組み合わせると非常に柔軟な指定が可能になり、実行したい Test を正確に選択できるようになる。
+Debug や新しい Test の開発を行なっているときに非常に役立つ。
