@@ -98,3 +98,9 @@ etc...
 - package-scope
 
 の働きは module-scope とまったく同じになる。Fixture を conftest.py File に配置することで働き方が差別化される。
+
+> #### conftest.py
+> 複数の Test File で Fixture を共有した場合に使用。対象の Fixture を使用している Test file と同じ Directory もしくは親 Directory
+> に配置する。  
+> Fixture が他の Fixture に依存する場合、依存先の Fixture は同じ Scope かそれよりも広い Scope でなければならない。
+
