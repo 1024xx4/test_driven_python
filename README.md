@@ -64,3 +64,14 @@ Test を駆動するときの初期状態。Action を実行するために Data
 
 -k flag を and, not, or の３つの Keyword と組み合わせると非常に柔軟な指定が可能になり、実行したい Test を正確に選択できるようになる。
 Debug や新しい Test の開発を行なっているときに非常に役立つ。
+
+## Fixture
+Test-helper関数。  
+実際の Test 関数の実行に先だって（場合によってはその後に）pytest が実行する関数。  
+必要であればどのような処理でも実行できる。
+### 使用例
+- Test で使う Dataset の取得。
+- Test を実行する前に System をあらかじめ定めた状態にする。
+- 複数の Test で使う Data を準備する。
+
+etc...
