@@ -3,6 +3,7 @@
 テスト駆動 Python 第２版 の Hands-on
 
 #### Sample Code
+
 https://pragprog.com/titles/bopytest2/python-testing-with-pytest-second-edition/
 ---
 
@@ -68,12 +69,32 @@ Test を駆動するときの初期状態。Action を実行するために Data
 Debug や新しい Test の開発を行なっているときに非常に役立つ。
 
 ## Fixture
+
 Test-helper関数。  
 実際の Test 関数の実行に先だって（場合によってはその後に）pytest が実行する関数。  
 必要であればどのような処理でも実行できる。
+
 ### 使用例
+
 - Test で使う Dataset の取得。
 - Test を実行する前に System をあらかじめ定めた状態にする。
 - 複数の Test で使う Data を準備する。
 
 etc...
+
+### Scope parameter の有効な値
+
+| Parameter の値       | 説明                                                                                                                                                      |
+|--------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `scope='function'` | Test関数や Method ごとに１回実行される。Setup部分はこの Fixture を使っている Test の前に実行され、Teardown部分はその Test の後に実行される。function は scope parameter が指定されない場合に使われる Defalut の scope. |
+| `scope='class`     | Test class ごとに１回実行される。その Test class に Method がいくつ定義されていたとしても、実行されるのは１回だけ。                                                                               |
+| `scope='module'`   | Module ごとに１回実行される。その Module に Test関数、Test-method, または他の Fixture がいくつ定義されていたとしても、実行されるのは１回だけ。                                                            |
+| `scope='package'`  | Package ごとに１回実行される。その Package に Test関数、Test-method, または他の Fixture がいくつ定義されていたとしても、実行されるのは１回だけ。                                                          |
+| `scope='session'`  | Session ごとに１回実行される。pytest command を使って Test を１回実行するのが１回の Session. Session-scope の Fixture を使っている Test-method や Test関数はすべて同じ Setup/Teardown 呼び出しを共有する。   |
+
+※ Fixture が Test-module の中で定義されている場合、
+
+- session-scope
+- package-scope
+
+の働きは module-scope とまったく同じになる。Fixture を conftest.py File に配置することで働き方が差別化される。
