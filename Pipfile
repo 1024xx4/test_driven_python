@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 pytest = "*"
 cards = {path = "./cards_proj"}
+faker = "*"
 
 [dev-packages]
 
